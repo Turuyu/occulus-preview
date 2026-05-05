@@ -1,0 +1,41 @@
+---
+const categories = [
+  {
+    title: 'Retratos',
+    image: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=80',
+  },
+  {
+    title: 'Moda',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80',
+  },
+  {
+    title: 'Producto',
+    image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80',
+  },
+];
+---
+
+<section class="bg-dark py-12">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {categories.map((cat) => (
+        <a href="#portfolio" class="group relative overflow-hidden aspect-[4/3]">
+          <img 
+            src={cat.image} 
+            alt={cat.title}
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+          <div class="absolute inset-0 bg-dark/50 group-hover:bg-dark/30 transition-colors" />
+          <div class="absolute bottom-0 left-0 right-0 p-6 flex items-end justify-between">
+            <span class="text-cream font-display text-xl uppercase tracking-wider">
+              {cat.title}
+            </span>
+            <span class="text-accent text-sm uppercase tracking-widest">
+              Ver más →
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

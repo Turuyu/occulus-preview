@@ -1,0 +1,32 @@
+---
+const newsletterImage = 'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80';
+---
+
+<section class="grid grid-cols-1 md:grid-cols-2">
+  <div class="bg-cream p-12 md:p-20 flex flex-col justify-center">
+    <h2 class="font-display text-5xl md:text-7xl text-dark leading-none mb-6">
+      SUSCRIBITE<br />AHORA
+    </h2>
+    <form class="flex gap-0 max-w-md">
+      <input 
+        type="email" 
+        placeholder="tu@email.com"
+        class="flex-1 px-4 py-3 bg-transparent border-b-2 border-dark/20 focus:border-accent outline-none text-dark placeholder:text-muted"
+      />
+      <button 
+        type="submit"
+        class="px-6 py-3 bg-accent text-cream uppercase tracking-widest text-sm hover:bg-dark transition-colors"
+      >
+        Enviar
+      </button>
+    </form>
+  </div>
+  
+  <div class="relative h-64 md:h-auto">
+    <img 
+      src={newsletterImage} 
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+  </div>
+</section>

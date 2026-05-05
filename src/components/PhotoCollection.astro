@@ -1,0 +1,129 @@
+---
+const filters = ['Todo', 'Retratos', 'Moda', 'Producto', 'Eventos', 'Editorial'];
+
+const projects = [
+  {
+    title: 'Sesión editorial primavera',
+    credits: [
+      { role: 'Dirección creativa', name: 'María García' },
+      { role: 'Fotografía', name: 'Estudio Foto' },
+      { role: 'Modelo', name: 'Ana López' },
+    ],
+    images: [
+      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&q=80',
+      'https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?w=400&q=80',
+      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&q=80',
+    ],
+  },
+  {
+    title: 'Colección cápsula urbana',
+    credits: [
+      { role: 'Dirección creativa', name: 'Carlos Ruiz' },
+      { role: 'Fotografía', name: 'Estudio Foto' },
+      { role: 'Estilismo', name: 'Laura Martín' },
+    ],
+    images: [
+      'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=400&q=80',
+      'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&q=80',
+      'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=400&q=80',
+    ],
+  },
+  {
+    title: 'Retratos en luz natural',
+    credits: [
+      { role: 'Fotografía', name: 'Estudio Foto' },
+      { role: 'Modelo', name: 'Sofía Herrera' },
+    ],
+    images: [
+      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&q=80',
+      'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&q=80',
+      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80',
+    ],
+  },
+  {
+    title: 'Producto lifestyle',
+    credits: [
+      { role: 'Dirección de arte', name: 'Pedro Sánchez' },
+      { role: 'Fotografía', name: 'Estudio Foto' },
+    ],
+    images: [
+      'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&q=80',
+      'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80',
+      'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&q=80',
+    ],
+  },
+];
+---
+
+<section id="portfolio" class="py-16 md:py-24 bg-cream">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="font-display text-4xl md:text-5xl text-dark text-center mb-8">
+      Portfolio
+    </h2>
+    
+    <!-- Filtros -->
+    <div class="flex flex-wrap justify-center gap-3 mb-12">
+      {filters.map((filter, i) => (
+        <button 
+          class={`px-4 py-2 text-xs uppercase tracking-widest border transition-all ${
+            i === 0 
+              ? 'bg-dark text-cream border-dark' 
+              : 'border-dark/20 text-muted hover:border-dark hover:text-dark'
+          }`}
+        >
+          {filter}
+        </button>
+      ))}
+    </div>
+    
+    <!-- Proyectos -->
+    <div class="space-y-16">
+      {projects.map((project) => (
+        <article class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <!-- Info del proyecto -->
+          <div class="lg:col-span-4 lg:sticky lg:top-32">
+            <h3 class="font-display text-2xl text-dark mb-4">
+              {project.title}
+            </h3>
+            <dl class="space-y-2 text-sm text-muted mb-6">
+              {project.credits.map((credit) => (
+                <div class="flex gap-2">
+                  <dt class="font-medium text-dark min-w-[140px]">{credit.role}</dt>
+                  <dd>{credit.name}</dd>
+                </div>
+              ))}
+            </dl>
+            <a 
+              href="#"
+              class="text-accent text-sm uppercase tracking-widest hover:text-dark transition-colors"
+            >
+              Ver más →
+            </a>
+          </div>
+          
+          <!-- Imágenes -->
+          <div class="lg:col-span-8 grid grid-cols-3 gap-3">
+            {project.images.map((img) => (
+              <div class="aspect-[3/4] overflow-hidden">
+                <img 
+                  src={img} 
+                  alt=""
+                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+    
+    <!-- Paginación -->
+    <div class="flex justify-center items-center gap-2 mt-16">
+      <button class="w-10 h-10 rounded-full bg-dark text-cream flex items-center justify-center">1</button>
+      <button class="w-10 h-10 rounded-full border border-dark/20 text-muted hover:border-dark hover:text-dark transition-all">2</button>
+      <button class="w-10 h-10 rounded-full border border-dark/20 text-muted hover:border-dark hover:text-dark transition-all">3</button>
+      <span class="text-muted px-2">...</span>
+      <button class="w-10 h-10 rounded-full border border-dark/20 text-muted hover:border-dark hover:text-dark transition-all">12</button>
+    </div>
+  </div>
+</section>

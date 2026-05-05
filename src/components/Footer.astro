@@ -1,0 +1,85 @@
+---
+const menuLinks = [
+  { label: 'Inicio', href: '#' },
+  { label: 'Portfolio', href: '#portfolio' },
+  { label: 'Servicios', href: '#' },
+  { label: 'Nosotros', href: '#' },
+  { label: 'Contacto', href: '#' },
+];
+
+const socialLinks = [
+  { label: 'Instagram', href: '#' },
+  { label: 'Facebook', href: '#' },
+  { label: 'Pinterest', href: '#' },
+];
+---
+
+<footer class="bg-dark text-cream py-16">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+      <!-- Logo -->
+      <div>
+        <a href="#" class="font-display text-3xl tracking-wider">
+          ESTUDIO
+        </a>
+        <p class="text-cream/60 text-sm mt-4 leading-relaxed">
+          Fotografía profesional para marcas, editoriales y proyectos creativos.
+        </p>
+      </div>
+      
+      <!-- Menú -->
+      <div>
+        <h4 class="uppercase tracking-widest text-xs text-cream/40 mb-4">Menú</h4>
+        <ul class="space-y-2">
+          {menuLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-cream/70 hover:text-accent transition-colors text-sm">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      <!-- Contacto -->
+      <div>
+        <h4 class="uppercase tracking-widest text-xs text-cream/40 mb-4">Contacto</h4>
+        <address class="not-italic text-cream/70 text-sm space-y-2">
+          <p>Buenos Aires, Argentina</p>
+          <p>
+            <a href="mailto:hola@estudio.com" class="hover:text-accent transition-colors">
+              hola@estudio.com
+            </a>
+          </p>
+          <p>
+            <a href="tel:+5491112345678" class="hover:text-accent transition-colors">
+              +54 9 11 1234-5678
+            </a>
+          </p>
+        </address>
+      </div>
+      
+      <!-- Redes -->
+      <div>
+        <h4 class="uppercase tracking-widest text-xs text-cream/40 mb-4">Seguinos</h4>
+        <ul class="space-y-2">
+          {socialLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-cream/70 hover:text-accent transition-colors text-sm">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+    
+    <div class="border-t border-cream/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-cream/40">
+      <p>© 2026 Estudio Fotográfico. Todos los derechos reservados.</p>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-cream transition-colors">Privacidad</a>
+        <a href="#" class="hover:text-cream transition-colors">Términos</a>
+      </div>
+    </div>
+  </div>
+</footer>

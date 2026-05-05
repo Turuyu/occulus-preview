@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dark: #1a1f16;
+  --color-cream: #f5f2eb;
+  --color-accent: #e8734a;
+  --color-muted: #6b6560;
+  
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-cream text-dark;
+  }
+}
