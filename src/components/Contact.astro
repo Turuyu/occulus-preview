@@ -1,0 +1,160 @@
+---
+const contactImage = 'https://images.unsplash.com/photo-1554048612-b6a482bc67e5?w=800&q=80';
+
+const sessionTypes = [
+  { value: 'proposal', label: 'Proposal' },
+  { value: 'retratos', label: 'Retratos' },
+  { value: 'evento', label: 'Evento' },
+  { value: 'producto', label: 'Producto' },
+];
+
+const referralSources = [
+  { value: 'facebook', label: 'Facebook Ads' },
+  { value: 'instagram', label: 'Instagram' },
+  { value: 'amigo', label: 'Por un amigo' },
+  { value: 'tarjeta', label: 'Tarjeta de presentación' },
+  { value: 'otro', label: 'Otro' },
+];
+
+const contactInfo = [
+  { label: 'WhatsApp', value: '+52 999 782 0072', href: 'https://wa.me/529997820072' },
+  { label: 'Instagram', value: '@monocromolab_', href: 'https://www.instagram.com/monocromolab_' },
+  { label: 'Facebook', value: 'MONOCROMO Lab', href: '#' },
+  { label: 'Email', value: 'contacto@monocromolab.com', href: 'mailto:contacto@monocromolab.com' },
+];
+---
+
+<section id="contacto" class="bg-dark text-cream py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+      <!-- Info -->
+      <div>
+        <p class="text-accent uppercase tracking-widest text-xs mb-4">Contacto</p>
+        <h2 class="font-display text-4xl md:text-5xl leading-tight mb-8">
+          Nuestro <span class="italic">servicio</span>
+        </h2>
+        <p class="text-cream/60 leading-relaxed mb-8">
+          Sabemos que las fotografías son el mejor tesoro de los momentos más memorables. Con nuestra visión artística y estilo único, capturamos la esencia de cada momento de forma atractiva y creativa.
+        </p>
+        <p class="text-cream/60 leading-relaxed mb-10">
+          Si deseas una cotización, envíanos un mensaje y nos contactaremos lo más pronto posible contigo. También, contáctanos en nuestras redes sociales:
+        </p>
+
+        <!-- Contact links -->
+        <ul class="space-y-4">
+          {contactInfo.map((item) => (
+            <li>
+              <p class="text-xs uppercase tracking-widest text-cream/40 mb-1">{item.label}</p>
+              <a 
+                href={item.href}
+                target={item.href.startsWith('http') ? '_blank' : undefined}
+                rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                class="text-cream hover:text-accent transition-colors"
+              >
+                {item.value}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Form -->
+      <div>
+        <form class="space-y-8">
+          <!-- Nombre -->
+          <div>
+            <label for="nombre" class="block text-xs uppercase tracking-widest text-cream/40 mb-2">
+              Tu nombre <span class="text-accent">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="nombre"
+              name="nombre"
+              required
+              class="w-full bg-transparent border-b border-cream/20 py-3 text-cream placeholder:text-cream/30 focus:border-accent outline-none transition-colors"
+              placeholder="Tu nombre completo"
+            />
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label for="email" class="block text-xs uppercase tracking-widest text-cream/40 mb-2">
+              Email <span class="text-accent">*</span>
+            </label>
+            <input 
+              type="email" 
+              id="email"
+              name="email"
+              required
+              class="w-full bg-transparent border-b border-cream/20 py-3 text-cream placeholder:text-cream/30 focus:border-accent outline-none transition-colors"
+              placeholder="tu@email.com"
+            />
+          </div>
+
+          <!-- Tipo de sesión -->
+          <fieldset>
+            <legend class="block text-xs uppercase tracking-widest text-cream/40 mb-4">
+              Tipo de sesión <span class="text-accent">*</span>
+            </legend>
+            <div class="flex flex-wrap gap-4">
+              {sessionTypes.map((type) => (
+                <label class="flex items-center gap-2 cursor-pointer group">
+                  <input 
+                    type="radio" 
+                    name="tipo-sesion" 
+                    value={type.value}
+                    required
+                    class="accent-accent"
+                  />
+                  <span class="text-cream/70 group-hover:text-cream transition-colors text-sm">
+                    {type.label}
+                  </span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <!-- ¿Cómo supiste de nosotros? -->
+          <div>
+            <label for="referral" class="block text-xs uppercase tracking-widest text-cream/40 mb-2">
+              ¿Cómo supiste de MONOCROMO Lab?
+            </label>
+            <select 
+              id="referral"
+              name="referral"
+              class="w-full bg-transparent border-b border-cream/20 py-3 text-cream focus:border-accent outline-none transition-colors appearance-none cursor-pointer"
+            >
+              <option value="" class="bg-dark">Selecciona una opción</option>
+              {referralSources.map((source) => (
+                <option value={source.value} class="bg-dark">{source.label}</option>
+              ))}
+            </select>
+          </div>
+
+          <!-- Mensaje -->
+          <div>
+            <label for="mensaje" class="block text-xs uppercase tracking-widest text-cream/40 mb-2">
+              Mensaje <span class="text-accent">*</span>
+            </label>
+            <textarea 
+              id="mensaje"
+              name="mensaje"
+              required
+              rows="4"
+              class="w-full bg-transparent border-b border-cream/20 py-3 text-cream placeholder:text-cream/30 focus:border-accent outline-none transition-colors resize-none"
+              placeholder="Cuéntanos sobre tu proyecto o evento..."
+            ></textarea>
+          </div>
+
+          <!-- Submit -->
+          <button 
+            type="submit"
+            class="w-full md:w-auto px-10 py-4 bg-accent text-cream uppercase tracking-widest text-sm hover:bg-cream hover:text-dark transition-colors"
+          >
+            Enviar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
